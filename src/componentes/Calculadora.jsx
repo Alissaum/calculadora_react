@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import styled from "styled-components";
 
-const Container = styled.div`
+const Container = styled.section`
   width: 30rem;
-  height: auto;
-  background-color: #000;
+  height: 32rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
-  color: #FFD700;
-  padding: 30px 20px;
+  font-size: 2rem;
+  background-color: #000;
+  color: #ffd700;
+  padding: 4rem 2rem;
   border-radius: 2rem;
   gap: 20px;
-  @media screen and (max-width: 500px){
-    width: 100%;
-    height: 100%;
+  @media screen and (max-width: 480px) {
+    width: 100vw;
+    height: 100vh;
     border-radius: 0;
   }
 `;
@@ -24,16 +24,15 @@ const Container = styled.div`
 const Input = styled.input`
   border-radius: 1rem;
   width: 70%;
-  border:1px solid #FFD700;
-  padding: 5px 20px;
-  font-size: 1.5rem;
-  text-align: end;
-  background-color: #C672FF80;
-  color: #FFD700;
+  border: 1px solid #121212;
+  font-size: 1.4rem;
+  background-color: #ffd700;
+  padding: 0.4rem 0.8rem;
   font-weight: 600;
+  outline-color: #ffd700;
 `;
 
-const ButtonsDiv = styled.div`
+const ButtonsDiv = styled.section`
   display: flex;
   width: 70%;
   justify-content: space-around;
@@ -43,28 +42,36 @@ const ButtonsDiv = styled.div`
 
 const Button = styled.button`
   border-radius: 1rem;
-  width: 2rem;
-  height: 3rem;
-  padding: 20px;
+  width: 4rem;
+  height: 4rem;
+  padding: 2rem;
+  margin: 0 0.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
-  color: #FFD700;
+  color: #ffd700;
   background-color: transparent;
-  border: 2px solid #FFD700;
+  border: 2px solid #ffd700;
+  transition: 0.2s;
+
+  &:hover {
+    cursor: pointer;
+    transition: 0.2s;
+    scale: 1.1;
+  }
 `;
 const Result = styled.div`
   font-size: 2rem;
-  background-color: #C672FF80;
-  width: 70%;
+  background-color: #ffd700;
+  color: #121212;
+  width: 18rem;
   height: 5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #FFD700;
   border-radius: 1rem;
-  padding: 10px 0;
+  padding: 0.8rem 0;
   font-weight: 600;
 `;
 
@@ -73,41 +80,44 @@ export default function Calculadora() {
   const [segundoValor, setSegundoValor] = useState();
   const [resultado, setResultado] = useState();
 
-  const capturarPrimeiroValor = (evento) => {
-    setPrimeiroValor(Number(evento.target.value))
-  }
-  const capturarSegundoValor = (evento) => {
-    setSegundoValor(Number(evento.target.value))
-  }
-  const soma = () => {
-    setResultado(primeiroValor + segundoValor)
-  }
+  const pegarPrimeiroValor = (evento) => {
+    setPrimeiroValor(Number(evento.target.value));
+  };
+  const pegarSegundoValor = (evento) => {
+    setSegundoValor(Number(evento.target.value));
+  };
+  const adicao = () => {
+    setResultado(primeiroValor + segundoValor);
+  };
   const subtracao = () => {
-    setResultado(primeiroValor - segundoValor)
-  }
+    setResultado(primeiroValor - segundoValor);
+  };
   const divisao = () => {
-    setResultado(primeiroValor / segundoValor)
-  }
+    setResultado(primeiroValor / segundoValor);
+  };
   const multiplicacao = () => {
-    setResultado(primeiroValor * segundoValor)
-  }
+    setResultado(primeiroValor * segundoValor);
+  };
   return (
     <Container>
-      <h2>Calculadora</h2>
-      <Input onChange={capturarPrimeiroValor} type="text" />
-      <Input onChange={capturarSegundoValor} type="text" />
+      <Input
+        onChange={pegarPrimeiroValor}
+        type="number"
+        placeholder="Insira o valor"
+      />
+      <Input
+        onChange={pegarSegundoValor}
+        type="number"
+        placeholder="Insira o valor"
+      />
       <ButtonsDiv>
-        <Button onClick={soma}>+</Button>
+        <Button onClick={adicao}>+</Button>
         <Button onClick={subtracao}>-</Button>
-        <Button onClick={divisao}>/</Button>
         <Button onClick={multiplicacao}>X</Button>
+        <Button onClick={divisao}>/</Button>
       </ButtonsDiv>
-        <h3>Resultado: </h3>
-      <Result>
-        {resultado}
-        </Result>
+      <h3>Resultado: </h3>
+      <Result>{resultado}</Result>
     </Container>
-
-
-  )
+  );
 }
