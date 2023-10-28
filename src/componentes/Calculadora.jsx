@@ -32,7 +32,7 @@ const Input = styled.input`
   outline-color: #ffd700;
 `;
 
-const ButtonsDiv = styled.section`
+const ButtonsSection = styled.section`
   display: flex;
   width: 70%;
   justify-content: space-around;
@@ -110,12 +110,12 @@ export default function Calculadora() {
         type="number"
         placeholder="Insira o valor"
       />
-      <ButtonsDiv>
+      <ButtonsSection>
         <Button onClick={adicao}>+</Button>
         <Button onClick={subtracao}>-</Button>
         <Button onClick={multiplicacao}>X</Button>
         <Button onClick={divisao}>/</Button>
-      </ButtonsDiv>
+      </ButtonsSection>
       <h3>Resultado: </h3>
       <Result>{resultado}</Result>
     </Container>
