@@ -23,7 +23,7 @@ const Container = styled.section`
 
 const Input = styled.input`
   border-radius: 1rem;
-  width: 70%;
+  width: 88%;
   border: 1px solid #121212;
   font-size: 1.4rem;
   background-color: #ffd700;
@@ -62,17 +62,16 @@ const Button = styled.button`
   }
 `;
 const Result = styled.div`
-  font-size: 2rem;
+  font-size: 1.8rem;
   background-color: #ffd700;
   color: #121212;
-  width: 18rem;
-  height: 5rem;
+  width: 88%;
+  height: 8rem;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 1rem;
-  padding: 0.8rem 0;
-  font-weight: 600;
+  font-weight: 900;
 `;
 
 export default function Calculadora() {
@@ -98,6 +97,10 @@ export default function Calculadora() {
   const multiplicacao = () => {
     setResultado(primeiroValor * segundoValor);
   };
+  const limpar = () => {
+    setResultado("");
+  };
+
   return (
     <Container>
       <Input
@@ -115,6 +118,7 @@ export default function Calculadora() {
         <Button onClick={subtracao}>-</Button>
         <Button onClick={multiplicacao}>X</Button>
         <Button onClick={divisao}>/</Button>
+        <Button onClick={limpar}>AC</Button>
       </ButtonsSection>
       <h3>Resultado: </h3>
       <Result>{resultado}</Result>
