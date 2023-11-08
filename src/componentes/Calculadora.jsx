@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const Container = styled.section`
+const Sessao = styled.section`
   width: 30rem;
   height: 32rem;
   display: flex;
@@ -102,7 +102,7 @@ export default function Calculadora() {
   };
 
   return (
-    <Container>
+    <Sessao>
       <Input
         onChange={pegarPrimeiroValor}
         type="number"
@@ -122,6 +122,6 @@ export default function Calculadora() {
       </ButtonsSection>
       <h3>Resultado: </h3>
       <Result>{resultado}</Result>
-    </Container>
+    </Sessao>
   );
 }

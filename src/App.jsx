@@ -1,17 +1,14 @@
-import React, { useState } from 'react'
-import Header from './componentes/Header'
-import Main from './componentes/Main'
-import { GlobalStyle } from './assets/css/GlobalStyle'
+import React, { useState } from "react";
+import Header from "./componentes/Header";
+import Main from "./componentes/Main";
+import { GlobalStyle } from "./assets/css/GlobalStyle";
 
-function App() {
-
+export default function App() {
   return (
     <>
-    <GlobalStyle/>
+      <GlobalStyle />
       <Header />
-      <Main/>
+      <Main />
     </>
-  )
+  );
 }
-
-export default App
