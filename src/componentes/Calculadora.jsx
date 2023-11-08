@@ -66,7 +66,7 @@ const Result = styled.div`
   background-color: #ffd700;
   color: #121212;
   width: 88%;
-  height: 8rem;
+  height: 10rem;
   display: flex;
   align-items: center;
   justify-content: center;
